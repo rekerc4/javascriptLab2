@@ -1,22 +1,5 @@
 "use strict"
 
-// let loadingFlag = false; 
-
-// let setLoadingFlags = () =>{
-//     loadingFlag = true; 
-// }
-
-// let checkBack = () => {
-//     if(loadingFlag = true){
-//         run();
-//     }
-//     else{
-//         checkBack(); 
-//     }
-// }
-
-document.body.style.backgroundImage = "url('images/background-parchment.jpg')";
-
 let run = () =>{
    
     let yourHit = 0; 
@@ -90,4 +73,4 @@ let run = () =>{
     startGame(); 
 }
 
-document.body.onload = setTimeout(run(), 5000); 
+document.body.onload = setTimeout(run, 250); 
