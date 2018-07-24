@@ -9,6 +9,17 @@ body{
 }
 
 .only{
-    padding: 10px
-    margin:
+    padding: 10px;
+    margin: 50%;
+    position: relative; 
+    height: 250px; 
+    width: 50%; 
+}
+
+.only2{
+    font-family: 'MedievalSharp', cursive;
+}
+
+.only3{
+    font-family: 'MedievalSharp', cursive;
 }
