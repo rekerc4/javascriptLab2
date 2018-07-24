@@ -1,20 +1,31 @@
 "use strict"
 
+let startGame = () => {
 let playChoice = prompt("Do you want to play a game?");// Ask if user wants to play. 
 let check = playChoice.toLocaleLowerCase().trim();//puts user response to lower case. 
 let checker = check.replace(/[\W0-9_]+/g, '');//strips non-alpha characters from user response. 
 
 if(checker === 'yes' || check === 'y' || check === 'yeah' || check === 'sure' || check === 'ye'){//Some variations on yes check against the users response. 
     let userName = prompt("What is your name?");//Prompt user for name and store it in a variable.
+    startCombat(userName); 
+    }
+}
+
+let startCombat = (userName) => {
     let grantHealth = 10;//set initial health number for Grant.
     let userHealth = 40;//set users initial health number. 
     let wins = 0; //set initial number of users wins. ie times Grant's health drops to zero or bellow. 
     let youAdjective = "";//sets an empty string for adjective used to describe users hit. 
     let grantAdjective = "";//sets an empty string for adjective used to describe Grant's hit. 
-   
+    let yourHit = 0; 
+    let grantHit = 0; 
+    let getDamage = () => {
+        let yourHit = (Math.ceil(Math.random() * 5));//set a random number for each hit user makes on Grant. 
+        let grantHit = (Math.ceil(Math.random() * 5));//set a random number for each hit Grant makes on user. 
+    }
+     
     while(userHealth > 0){//Main while loop set to run until user runs out of health. 
-        let yourHit = (Math.ceil(Math.random() * 2));//set a random number for each hit user makes on Grant. 
-        let grantHit = (Math.ceil(Math.random() * 2));//set a random number for each hit Grant makes on user. 
+        getDamage();  
         grantHealth = grantHealth - yourHit;//subtracts the value of users hit from Grant's health.
         userHealth = userHealth - grantHit;//subtracts the value of Grant's hit from users health. 
       
@@ -48,6 +59,8 @@ if(checker === 'yes' || check === 'y' || check === 'yeah' || check === 'sure' ||
             console.log("You are defeated Grant wins :(");//Prints end of game message for users defeat. 
             break;  //Ends while loop. 
         }//While loop should not end on its own. 
-}
 
     }
+}
+
+startGame(); 
